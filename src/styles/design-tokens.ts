@@ -73,6 +73,35 @@ export const tokens = {
   },
   "border": {
     "width-default": "1px"
+  },
+  "colors": {
+    "brand": {
+      "primary": "#f472b6",
+      "secondary": "#60a5fa",
+      "accent": "#fcd34d",
+      "primary-hover": "#f1f5f9"
+    },
+    "surface": {
+      "DEFAULT": "#ffffff",
+      "subtle": "#f8fafc",
+      "hover": "#f1f5f9"
+    },
+    "text": {
+      "primary": "#0f172a",
+      "secondary": "#475569",
+      "tertiary": "#94a3b8"
+    },
+    "state": {
+      "success": "#059669",
+      "warning": "#d97706",
+      "danger": "#dc2626"
+    },
+    "border": "#e2e8f0"
+  },
+  "borderRadius": {
+    "s": "4px",
+    "m": "8px",
+    "l": "8px"
   }
 } as const;
 

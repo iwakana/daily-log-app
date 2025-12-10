@@ -63,13 +63,64 @@ function extractTokensFromFile(filePath: string): TokenStructure {
  * Generate adapter TypeScript code for Tailwind config
  */
 function generateAdapterCode(tokens: TokenStructure): string {
+  // Build a Tailwind-friendly view: keep flat tokens but also provide
+  // nested `colors` and normalized `borderRadius` and spacing aliases.
+  const adapter = Object.assign({}, tokens as any);
+
+  // Build nested colors object for common Tailwind usage
+  const flat = (tokens.color || {}) as Record<string, string>;
+  const colorsNested: Record<string, any> = {
+    brand: {
+      primary: flat["bg-brand-primary"],
+      secondary: flat["bg-brand-secondary"],
+      accent: flat["bg-brand-accent"],
+      // primaryHover fallback to bg-hover or primary
+      "primary-hover": flat["bg-hover"] || flat["bg-brand-primary"],
+    },
+    surface: {
+      DEFAULT: flat["bg-surface"],
+      subtle: flat["bg-surface-muted"],
+      hover: flat["bg-hover"],
+    },
+    text: {
+      primary: flat["text-primary"],
+      secondary: flat["text-secondary"],
+      tertiary: flat["text-tertiary"],
+    },
+    state: {
+      success: flat["text-success"],
+      warning: flat["text-warning"],
+      danger: flat["text-danger"],
+    },
+    border: flat["border-default"],
+  };
+
+  adapter.colors = colorsNested;
+
+  // Normalize borderRadius keys for Tailwind (remove 'rounded-' prefix)
+  const radiusFlat = (tokens.radius || {}) as Record<string, string>;
+  const borderRadius: Record<string, string> = {};
+  for (const [k, v] of Object.entries(radiusFlat)) {
+    const key = k.replace(/^rounded-/, "");
+    borderRadius[key] = v as string;
+  }
+  adapter.borderRadius = borderRadius;
+
+  // Ensure spacing aliases s/m/l/xl exist at top-level spacing
+  const spacing = Object.assign({}, tokens.spacing || {} as Record<string,string>);
+  if (spacing["s"] === undefined && spacing["p-s"]) spacing["s"] = spacing["p-s"];
+  if (spacing["m"] === undefined && spacing["p-m"]) spacing["m"] = spacing["p-m"];
+  if (spacing["l"] === undefined && spacing["p-l"]) spacing["l"] = spacing["p-l"];
+  if (spacing["xl"] === undefined && spacing["p-xl"]) spacing["xl"] = spacing["p-xl"];
+  adapter.spacing = spacing;
+
   const code = `// AUTO-GENERATED: Tailwind Adapter for Design Tokens
 // Source: design-tokens.ts (Canonical Source of Truth)
 // ⚠️  DO NOT EDIT MANUALLY — run "npm run sync-tokens" to regenerate
 //
 // This file bridges canonical design tokens to Tailwind theme.extend
 
-export const tokens = ${JSON.stringify(tokens, null, 2)} as const;
+export const tokens = ${JSON.stringify(adapter, null, 2)} as const;
 
 export type Tokens = typeof tokens;
 `;

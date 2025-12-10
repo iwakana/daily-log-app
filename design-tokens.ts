@@ -109,6 +109,13 @@ export const tokens = {
   border: {
     "width-default": "1px",
   },
+  // ==================== LINE HEIGHT TOKENS ====================
+  lineHeight: {
+    "leading-none": 1,
+    "leading-tight": 1.25,
+    "leading-normal": 1.5,
+    "leading-relaxed": 1.625,
+  },
 } as const;
 
 export type Tokens = typeof tokens;

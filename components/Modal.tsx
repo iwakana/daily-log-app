@@ -2,13 +2,7 @@
 "use client";
 
 import React from "react";
-import { twMerge } from "tailwind-merge";
-import { clsx, type ClassValue } from "clsx";
 import Button from "./Button";
-
-function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 interface ModalProps {
   isOpen: boolean;

@@ -3,7 +3,6 @@
 
 import Link from "next/link";
 import Button from "@/components/Button";
-import Tag from "@/components/Tag";
 import Input from "@/components/Input"; // 👈 ★忘れずに追加！
 
 export default function LoginPage() {

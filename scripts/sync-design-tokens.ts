@@ -31,6 +31,8 @@ interface TokenStructure {
   typography?: Record<string, string | number>;
   size?: Record<string, string>;
   border?: Record<string, string>;
+  lineHeight?: Record<string, number>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }
 
@@ -67,10 +69,12 @@ function extractTokensFromFile(filePath: string): TokenStructure {
 function generateAdapterCode(tokens: TokenStructure): string {
   // Build a Tailwind-friendly view: keep flat tokens but also provide
   // nested `colors` and normalized `borderRadius` and spacing aliases.
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const adapter = Object.assign({}, tokens as any);
 
   // Build nested colors object for common Tailwind usage
   const flat = (tokens.color || {}) as Record<string, string>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const colorsNested: Record<string, any> = {
     brand: {
       primary: flat["bg-brand-primary"],

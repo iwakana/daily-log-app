@@ -6,7 +6,7 @@
 
 export const tokens = {
   "color": {
-    "bg-brand-primary": "#f472b6",
+    "bg-brand-primary": "#60a5fa",
     "bg-brand-secondary": "#60a5fa",
     "bg-brand-accent": "#fcd34d",
     "bg-palette-green": "#34d399",
@@ -74,9 +74,15 @@ export const tokens = {
   "border": {
     "width-default": "1px"
   },
+  "lineHeight": {
+    "leading-none": 1,
+    "leading-tight": 1.25,
+    "leading-normal": 1.5,
+    "leading-relaxed": 1.625
+  },
   "colors": {
     "brand": {
-      "primary": "#f472b6",
+      "primary": "#60a5fa",
       "secondary": "#60a5fa",
       "accent": "#fcd34d",
       "primary-hover": "#f1f5f9"

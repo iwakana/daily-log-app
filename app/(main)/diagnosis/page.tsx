@@ -36,7 +36,7 @@ export default function DiagnosisPage() {
   logAudit(
     "INFO",
     "app/diagnosis/page.tsx",
-    "Diagnosis page loaded with token-only styling"
+    "Diagnosis page loaded (Journaling Theme)"
   );
 
   return (
@@ -70,10 +70,10 @@ export default function DiagnosisPage() {
               fontSize: tokens.typography["h1-size"],
               fontWeight: tokens.typography["h1-weight"],
               margin: "0 0 " + tokens.spacing["p-m"] + " 0",
-              lineHeight: 1.2,
+              lineHeight: tokens.lineHeight["leading-tight"],
             }}
           >
-            あなたの可能性を、一緒に見つけましょう
+            毎日の出来事を、もっと楽しく残そう
           </h1>
 
           <p
@@ -81,18 +81,18 @@ export default function DiagnosisPage() {
               fontSize: tokens.typography["body-size"],
               fontWeight: tokens.typography["body-weight"],
               margin: "0 0 " + tokens.spacing["p-l"] + " 0",
-              lineHeight: 1.6,
+              lineHeight: tokens.lineHeight["leading-relaxed"],
               maxWidth: tokens.size["hero-max"],
               marginLeft: "auto",
               marginRight: "auto",
               opacity: 0.95,
             }}
           >
-            キャリア診断なら、あなたの強みや向いているキャリアが3分で分かります。
+            日記スタイル診断なら、あなたにぴったりの記録方法が3分で分かります。
             <br />
-            それぞれの成長段階に合わせた、ぴったりなアドバイスをお届けします。
+            無理なく楽しく続けられる、あなただけの日記ライフを見つけましょう。
             <br />
-            前向きな一歩を、今から始めましょう。
+            今日という日を、特別な思い出に変える一歩を。
           </p>
 
           <Link
@@ -112,8 +112,9 @@ export default function DiagnosisPage() {
               boxShadow: tokens.shadow["shadow-card"],
               transition: "transform 0.2s, box-shadow 0.2s",
               cursor: "pointer",
+              lineHeight: tokens.lineHeight["leading-none"],
             }}
-            aria-label="キャリア診断を始める"
+            aria-label="日記スタイル診断を始める"
           >
             診断を始める
           </Link>
@@ -155,7 +156,7 @@ export default function DiagnosisPage() {
               marginRight: "auto",
             }}
           >
-            3つの視点から、あなたのキャリアの可能性を見つめ直します。
+            あなたの性格やライフスタイルに合わせて、最適な記録方法をご提案します。
           </p>
 
           <div
@@ -166,7 +167,7 @@ export default function DiagnosisPage() {
               marginTop: tokens.spacing["p-l"],
             }}
           >
-            {/* Card 1: 強み */}
+            {/* Card 1: Writing Style */}
             <article
               style={{
                 padding: tokens.spacing["p-l"],
@@ -180,11 +181,11 @@ export default function DiagnosisPage() {
                 style={{
                   fontSize: tokens.typography["hero-emoji-size"],
                   marginBottom: tokens.spacing["p-m"],
-                  lineHeight: 1,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-hidden="true"
               >
-                💪
+                ✍️
               </div>
               <h3
                 style={{
@@ -194,21 +195,21 @@ export default function DiagnosisPage() {
                   color: tokens.color["text-primary"],
                 }}
               >
-                あなたの強み
+                あなたらしい書き方
               </h3>
               <p
                 style={{
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
-                  lineHeight: 1.6,
+                  lineHeight: tokens.lineHeight["leading-relaxed"],
                   margin: 0,
                 }}
               >
-                これまでの経験や適性から、あなたが持つ才能や強みを見つけ出します。自分では気づかなかった可能性も発見できます。
+                自分では気づかなかった、文章のクセや魅力的な表現方法が見つかります。
               </p>
             </article>
 
-            {/* Card 2: 向いているキャリア */}
+            {/* Card 2: Recommended Themes */}
             <article
               style={{
                 padding: tokens.spacing["p-l"],
@@ -222,11 +223,11 @@ export default function DiagnosisPage() {
                 style={{
                   fontSize: tokens.typography["hero-emoji-size"],
                   marginBottom: tokens.spacing["p-m"],
-                  lineHeight: 1,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-hidden="true"
               >
-                🎯
+                📔
               </div>
               <h3
                 style={{
@@ -236,21 +237,21 @@ export default function DiagnosisPage() {
                   color: tokens.color["text-primary"],
                 }}
               >
-                向いているキャリア
+                おすすめのテーマ
               </h3>
               <p
                 style={{
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
-                  lineHeight: 1.6,
+                  lineHeight: tokens.lineHeight["leading-relaxed"],
                   margin: 0,
                 }}
               >
-                あなたの強みや志向に合った、最適なキャリアパスをご提案します。多くの選択肢の中から、あなたらしい道を見つけましょう。
+                「何を書けばいいかわからない」を解消。あなたが好きそうなトピックや、振り返りたくなるテーマをご提案します。
               </p>
             </article>
 
-            {/* Card 3: 次のステップ */}
+            {/* Card 3: Habit Tips */}
             <article
               style={{
                 padding: tokens.spacing["p-l"],
@@ -264,11 +265,11 @@ export default function DiagnosisPage() {
                 style={{
                   fontSize: tokens.typography["hero-emoji-size"],
                   marginBottom: tokens.spacing["p-m"],
-                  lineHeight: 1,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-hidden="true"
               >
-                📍
+                🌟
               </div>
               <h3
                 style={{
@@ -278,17 +279,17 @@ export default function DiagnosisPage() {
                   color: tokens.color["text-primary"],
                 }}
               >
-                次に踏むべきステップ
+                続けられるコツ
               </h3>
               <p
                 style={{
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
-                  lineHeight: 1.6,
+                  lineHeight: tokens.lineHeight["leading-relaxed"],
                   margin: 0,
                 }}
               >
-                理想のキャリアに近づくために、今から何をすべきかが明確になります。具体的で実行可能なアクションプランをお届けします。
+                三日坊主にならないための、小さな工夫やタイミングへのアドバイスをお届けします。
               </p>
             </article>
           </div>
@@ -348,6 +349,7 @@ export default function DiagnosisPage() {
                   fontWeight: tokens.typography["h2-weight"],
                   marginBottom: tokens.spacing["p-m"],
                   margin: "0 auto " + tokens.spacing["p-m"] + " auto",
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-label="ステップ 1"
               >
@@ -368,10 +370,10 @@ export default function DiagnosisPage() {
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
                   margin: 0,
-                  lineHeight: 1.5,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
               >
-                約3分で完了。難しい質問はありません。
+                約3分で完了。好みや日々の過ごし方について教えてください。
               </p>
             </div>
 
@@ -382,7 +384,8 @@ export default function DiagnosisPage() {
                 alignItems: "center",
                 justifyContent: "center",
                 color: tokens.color["text-secondary"],
-                  fontSize: tokens.typography["h3-size"],
+                fontSize: tokens.typography["h3-size"],
+                lineHeight: tokens.lineHeight["leading-normal"],
               }}
               aria-hidden="true"
             >
@@ -409,6 +412,7 @@ export default function DiagnosisPage() {
                   fontSize: tokens.typography["h2-size"],
                   fontWeight: tokens.typography["h2-weight"],
                   margin: "0 auto " + tokens.spacing["p-m"] + " auto",
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-label="ステップ 2"
               >
@@ -429,10 +433,10 @@ export default function DiagnosisPage() {
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
                   margin: 0,
-                  lineHeight: 1.5,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
               >
-                数秒で分析完了。待ちなしで結果へ。
+                あなたの回答から、最適な日記スタイルと相性を分析します。
               </p>
             </div>
 
@@ -444,6 +448,7 @@ export default function DiagnosisPage() {
                 justifyContent: "center",
                 color: tokens.color["text-secondary"],
                 fontSize: tokens.typography["h3-size"],
+                lineHeight: tokens.lineHeight["leading-normal"],
               }}
               aria-hidden="true"
             >
@@ -470,6 +475,7 @@ export default function DiagnosisPage() {
                   fontSize: tokens.typography["h2-size"],
                   fontWeight: tokens.typography["h2-weight"],
                   margin: "0 auto " + tokens.spacing["p-m"] + " auto",
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
                 aria-label="ステップ 3"
               >
@@ -490,10 +496,10 @@ export default function DiagnosisPage() {
                   fontSize: tokens.typography["small-size"],
                   color: tokens.color["text-secondary"],
                   margin: 0,
-                  lineHeight: 1.5,
+                  lineHeight: tokens.lineHeight["leading-normal"],
                 }}
               >
-                詳細な診断結果と、あなたへのアドバイス。
+                あなただけのスタイルガイドと、今日から使えるテンプレートをお届けします。
               </p>
             </div>
           </div>
@@ -521,7 +527,7 @@ export default function DiagnosisPage() {
               margin: "0 0 " + tokens.spacing["p-m"] + " 0",
             }}
           >
-            今、キャリアの次の一歩を見つけましょう
+            今日から、あなただけの物語を紡ぎましょう
           </h2>
 
           <p
@@ -529,12 +535,12 @@ export default function DiagnosisPage() {
               fontSize: tokens.typography["body-size"],
               margin: "0 0 " + tokens.spacing["p-l"] + " 0",
               opacity: 0.95,
-              lineHeight: 1.6,
+              lineHeight: tokens.lineHeight["leading-relaxed"],
             }}
           >
             診断は完全無料。結果はすぐに表示されます。
             <br />
-            あなたの可能性を、一緒に探してみませんか？
+            日々の記録が、未来のあなたへの贈り物になりますように。
           </p>
 
           <button
@@ -543,7 +549,11 @@ export default function DiagnosisPage() {
               window.location.href = "/diagnosis/start";
             }}
             style={{
-              padding: `${tokens.spacing["p-m"]} ${tokens.spacing["p-l"]}`,
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              padding: `0 ${tokens.spacing["p-l"]}`,
+              height: tokens.size["touch-min"],
               backgroundColor: tokens.color["bg-surface"],
               color: tokens.color["bg-brand-primary"],
               border: "none",
@@ -551,9 +561,9 @@ export default function DiagnosisPage() {
               fontSize: tokens.typography["body-size"],
               fontWeight: 600,
               cursor: "pointer",
-              minHeight: tokens.size["touch-min"],
               transition: "transform 0.2s, box-shadow 0.2s",
               boxShadow: tokens.shadow["shadow-card"],
+              lineHeight: tokens.lineHeight["leading-none"],
             }}
             aria-label="今すぐ診断を開始"
           >
@@ -579,7 +589,7 @@ export default function DiagnosisPage() {
             margin: 0,
           }}
         >
-          © {new Date().getFullYear()} — 社員向けキャリア自律支援
+          © {new Date().getFullYear()} — 日々の記録を楽しむあなたへ
         </p>
       </footer>
     </div>

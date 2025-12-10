@@ -14,16 +14,18 @@ export function Sidebar({
 
   // ☁️ メニューを「日記アプリ」用に変更
   const menuItems = [
-    { label: "今日の記録", href: "/dashboard", icon: "✍️" },
-    { label: "カレンダー", href: "/calendar", icon: "📅" },
-    { label: "設定", href: "/settings", icon: "⚙️" },
+    { label: "今日の記録", href: "/dashboard", icon: "edit_note" },
+    { label: "カレンダー", href: "/calendar", icon: "calendar_month" },
+    { label: "設定", href: "/settings", icon: "settings" },
   ];
 
   return (
     <aside className="hidden md:flex w-64 h-screen bg-surface border-r border-ui-border flex-col shadow-sm">
       {/* ロゴエリア */}
       <div className="p-m border-b border-ui-border flex items-center gap-m">
-        <span className="text-3xl">☁️</span>
+        <span className="material-symbols-rounded text-3xl text-brand-primary">
+          cloud
+        </span>
         <div>
           <h1 className="text-lg font-bold text-text-high tracking-widest font-accent">
             Daily Log
@@ -49,7 +51,9 @@ export function Sidebar({
                 }
               `}
             >
-              <span className="text-xl">{item.icon}</span>
+              <span className="material-symbols-rounded text-xl">
+                {item.icon}
+              </span>
               <span>{item.label}</span>
             </Link>
           );

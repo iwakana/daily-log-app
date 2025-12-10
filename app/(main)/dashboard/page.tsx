@@ -8,10 +8,10 @@ import Modal from "@/components/Modal";
 
 // スタンプの定義
 const MOODS = [
-  { icon: "🥰", label: "最高！", color: "bg-rose-100 text-rose-500" },
-  { icon: "🍵", label: "おだやか", color: "bg-emerald-100 text-emerald-500" },
-  { icon: "😢", label: "ブルー", color: "bg-blue-100 text-blue-500" },
-  { icon: "😡", label: "イライラ", color: "bg-orange-100 text-orange-500" },
+  { icon: "sunny", label: "Great", color: "bg-orange-100 text-orange-500" },
+  { icon: "spa", label: "Calm", color: "bg-emerald-100 text-emerald-500" },
+  { icon: "rainy", label: "Blue", color: "bg-blue-100 text-blue-500" },
+  { icon: "thunderstorm", label: "Irritated", color: "bg-purple-100 text-purple-500" },
 ];
 
 // 日記データの型（仮）
@@ -31,13 +31,13 @@ export default function DashboardPage() {
     {
       id: 1,
       date: "12/10",
-      mood: "🥰",
+      mood: "sunny",
       text: "新しいアプリのアイデアを思いついた！",
     },
     {
       id: 2,
       date: "12/09",
-      mood: "🍵",
+      mood: "spa",
       text: "ゆっくりお風呂に入ってリラックス。",
     },
   ]);
@@ -51,8 +51,11 @@ export default function DashboardPage() {
     <div className="max-w-2xl mx-auto space-y-8 pb-20">
       {/* ヘッダー */}
       <header className="text-center py-6">
-        <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent">
-          Daily Log ☁️
+        <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent flex items-center justify-center gap-2">
+          Daily Log
+          <span className="material-symbols-rounded text-brand-primary">
+            cloud
+          </span>
         </h1>
         <p className="text-text-muted mt-2">今日の気分はどうですか？</p>
       </header>
@@ -70,7 +73,7 @@ export default function DashboardPage() {
                 ${mood.color}
               `}
             >
-              <span className="text-4xl filter drop-shadow-sm leading-none">
+              <span className="material-symbols-rounded text-4xl filter drop-shadow-sm leading-none">
                 {mood.icon}
               </span>
               <span className="text-sm font-bold">{mood.label}</span>
@@ -87,7 +90,9 @@ export default function DashboardPage() {
             <Card key={entry.id} className="hover:shadow-md transition-shadow">
               <CardContent className="p-4 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-surface-subtle flex items-center justify-center text-2xl shadow-sm border border-brand-primary/20">
-                  {entry.mood}
+                  <span className="material-symbols-rounded text-brand-primary">
+                    {entry.mood}
+                  </span>
                 </div>
                 <div>
                   <div className="text-xs text-text-muted font-bold mb-1">
@@ -105,7 +110,12 @@ export default function DashboardPage() {
       <Modal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title={`${selectedMood.icon} 今日のひとこと`}
+        title={
+          <span className="flex items-center gap-2">
+            <span className="material-symbols-rounded">{selectedMood.icon}</span>
+            今日のひとこと
+          </span>
+        }
         footer={
           <Button
             intent="primary"

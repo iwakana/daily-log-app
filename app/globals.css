@@ -6,6 +6,16 @@
 :root {
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
     Arial;
+
+  /* Default Theme (Pink) */
+  --color-brand-primary: #f472b6;
+  --color-brand-secondary: #60a5fa;
+  --color-brand-accent: #fcd34d;
+  --color-palette-green: #34d399;
+  --color-palette-yellow: #fbbf24;
+
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
 }
 
 html,
@@ -13,10 +23,20 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Improve font rendering */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
 
 .material-symbols-rounded {

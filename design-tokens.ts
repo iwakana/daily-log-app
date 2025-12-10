@@ -13,16 +13,16 @@ export const tokens = {
   // ==================== COLOR TOKENS ====================
   color: {
     // Brand Colors
-    "bg-brand-primary": "#f472b6", // Soft Pink (主色)
-    "bg-brand-secondary": "#60a5fa", // Pastel Blue (副色)
-    "bg-brand-accent": "#fcd34d", // Cream Yellow (アクセント)
+    "bg-brand-primary": "var(--color-brand-primary)", // Soft Pink (主色)
+    "bg-brand-secondary": "var(--color-brand-secondary)", // Pastel Blue (副色)
+    "bg-brand-accent": "var(--color-brand-accent)", // Cream Yellow (アクセント)
     // Additional palette used in settings theme swatches
-    "bg-palette-green": "#34d399",
-    "bg-palette-yellow": "#fbbf24",
+    "bg-palette-green": "var(--color-palette-green)",
+    "bg-palette-yellow": "var(--color-palette-yellow)",
 
     // Surface Colors
-    "bg-surface": "#ffffff", // White - Clean
-    "bg-surface-muted": "#f8fafc", // Slate 50 - Subtle background
+    "bg-surface": "var(--color-surface)", // White - Clean
+    "bg-surface-muted": "var(--color-surface-muted)", // Slate 50 - Subtle background
 
     // Text Colors
     "text-primary": "#0f172a", // Slate 900 - High contrast

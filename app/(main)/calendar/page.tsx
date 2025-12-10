@@ -3,22 +3,48 @@
 import React from "react";
 import { Card, CardContent } from "@/components/Card";
 import Tag from "@/components/Tag";
+import { useAppData } from "@/context/AppDataContext";
+
+// Mood Rendering Config
+const MOOD_CONFIG: Record<string, string> = {
+  celebration: "bg-orange-100 text-orange-500",
+  spa: "bg-emerald-100 text-emerald-500",
+  rainy: "bg-blue-100 text-blue-500",
+  thunderstorm: "bg-purple-100 text-purple-500",
+  // Secondary Moods
+  battery_low: "bg-gray-100 text-gray-500",
+  restaurant: "bg-orange-50 text-orange-400",
+  bedtime: "bg-indigo-50 text-indigo-400",
+  monitor_heart: "bg-pink-50 text-pink-400",
+  auto_awesome: "bg-yellow-50 text-yellow-600",
+  rocket_launch: "bg-blue-50 text-blue-400",
+};
 
 export default function CalendarPage() {
-  // ダミーデータ：過去の気分スタンプ
-  // ダミーデータ：過去の気分スタンプ
-  const records = [
-    { date: 1, mood: "celebration", color: "bg-orange-100 text-orange-500" },
-    { date: 2, mood: "spa", color: "bg-emerald-100 text-emerald-500" },
-    { date: 3, mood: "rainy", color: "bg-blue-100 text-blue-500" },
-    { date: 4, mood: "celebration", color: "bg-orange-100 text-orange-500" },
-    { date: 5, mood: "spa", color: "bg-emerald-100 text-emerald-500" },
-    { date: 8, mood: "thunderstorm", color: "bg-purple-100 text-purple-500" },
-    { date: 10, mood: "celebration", color: "bg-orange-100 text-orange-500" },
-  ];
+  const { entries } = useAppData();
+  
+  // Get current date info
+  const today = new Date();
+  const currentMonth = today.getMonth(); // 0-11
+  const currentYear = today.getFullYear();
+  const monthLabel = today.toLocaleString("en-US", { month: "long" });
 
-  // カレンダーの日付生成 (1日〜31日)
-  const days = Array.from({ length: 31 }, (_, i) => i + 1);
+  // Filter entries for current month
+  const currentMonthEntries = entries.filter((entry) => {
+    const d = new Date(entry.fullDate);
+    return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
+  });
+
+  // Calculate stats
+  const greatCount = currentMonthEntries.filter(e => e.mood === "celebration").length;
+  const calmCount = currentMonthEntries.filter(e => e.mood === "spa").length;
+
+  // Calculate start day offset (0 = Sunday, 1 = Monday, ...)
+  const startDayOffset = new Date(currentYear, currentMonth, 1).getDay();
+
+  // Generate days for 1 to lastDay
+  const lastDay = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const days = Array.from({ length: lastDay }, (_, i) => i + 1);
 
   return (
     <div className="max-w-3xl mx-auto space-y-8 pb-20">
@@ -26,7 +52,7 @@ export default function CalendarPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent">
-            December, 2025
+            {monthLabel}, {currentYear}
           </h1>
           <p className="text-text-muted mt-1">今月の心の記録</p>
         </div>
@@ -35,13 +61,13 @@ export default function CalendarPage() {
             <span className="material-symbols-rounded text-sm align-middle mr-1">
               celebration
             </span>
-            Great: 3日
+            Great: {greatCount}日
           </Tag>
           <Tag variant="success">
             <span className="material-symbols-rounded text-sm align-middle mr-1">
               spa
             </span>
-            Calm: 2日
+            Calm: {calmCount}日
           </Tag>
         </div>
       </div>
@@ -63,14 +89,19 @@ export default function CalendarPage() {
 
           {/* 日付グリッド */}
           <div className="grid grid-cols-7 gap-2 md:gap-4">
-            {/* 空白セル（1日が水曜始まりと仮定） */}
-            {[...Array(3)].map((_, i) => (
+            {/* 空白セル: 月初の曜日分だけ空ける */}
+            {[...Array(startDayOffset)].map((_, i) => (
               <div key={`empty-${i}`} />
             ))}
 
             {days.map((day) => {
               // その日の記録を探す
-              const record = records.find((r) => r.date === day);
+              const entry = currentMonthEntries.find((e) => {
+                 const d = new Date(e.fullDate);
+                 return d.getDate() === day;
+              });
+              
+              const isToday = day === today.getDate() && currentMonth === today.getMonth();
 
               return (
                 <div
@@ -78,12 +109,12 @@ export default function CalendarPage() {
                   className={`
                     aspect-square rounded-m flex flex-col items-center justify-center relative group cursor-pointer transition-all
                     ${
-                      record
+                      entry
                         ? "bg-surface hover:shadow-md"
                         : "hover:bg-surface-hover"
                     }
                     ${
-                      day === 10
+                      isToday
                         ? "border-2 border-brand-primary"
                         : "border border-transparent"
                     }
@@ -92,30 +123,30 @@ export default function CalendarPage() {
                   {/* 日付 */}
                   <span
                     className={`text-xs ${
-                      day === 10
+                      isToday
                         ? "font-bold text-brand-primary"
                         : "text-text-muted"
                     }`}
                   >
-                    {day}
+                    <span className="font-accent">{day}</span>
                   </span>
 
                   {/* スタンプがあれば表示 */}
-                  {record && (
+                  {entry && (
                     <div
                       className={`
                       w-8 h-8 rounded-full flex items-center justify-center text-xl mt-1
-                      ${record.color}
+                      ${MOOD_CONFIG[entry.mood] || "bg-gray-100 text-gray-500"}
                     `}
                     >
                       <span className="material-symbols-rounded text-lg">
-                        {record.mood}
+                        {entry.mood}
                       </span>
                     </div>
                   )}
 
                   {/* 今日のマーク */}
-                  {day === 10 && (
+                  {isToday && (
                     <div className="absolute top-1 right-1 w-2 h-2 rounded-full bg-brand-primary" />
                   )}
                 </div>

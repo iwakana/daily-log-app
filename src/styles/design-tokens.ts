@@ -6,13 +6,13 @@
 
 export const tokens = {
   "color": {
-    "bg-brand-primary": "#f472b6",
-    "bg-brand-secondary": "#60a5fa",
-    "bg-brand-accent": "#fcd34d",
-    "bg-palette-green": "#34d399",
-    "bg-palette-yellow": "#fbbf24",
-    "bg-surface": "#ffffff",
-    "bg-surface-muted": "#f8fafc",
+    "bg-brand-primary": "var(--color-brand-primary)",
+    "bg-brand-secondary": "var(--color-brand-secondary)",
+    "bg-brand-accent": "var(--color-brand-accent)",
+    "bg-palette-green": "var(--color-palette-green)",
+    "bg-palette-yellow": "var(--color-palette-yellow)",
+    "bg-surface": "var(--color-surface)",
+    "bg-surface-muted": "var(--color-surface-muted)",
     "text-primary": "#0f172a",
     "text-secondary": "#475569",
     "text-tertiary": "#94a3b8",
@@ -85,14 +85,14 @@ export const tokens = {
   },
   "colors": {
     "brand": {
-      "primary": "#f472b6",
-      "secondary": "#60a5fa",
-      "accent": "#fcd34d",
+      "primary": "var(--color-brand-primary)",
+      "secondary": "var(--color-brand-secondary)",
+      "accent": "var(--color-brand-accent)",
       "primary-hover": "#f1f5f9"
     },
     "surface": {
-      "DEFAULT": "#ffffff",
-      "subtle": "#f8fafc",
+      "DEFAULT": "var(--color-surface)",
+      "subtle": "var(--color-surface-muted)",
       "hover": "#f1f5f9"
     },
     "text": {

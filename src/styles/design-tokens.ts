@@ -32,7 +32,11 @@ export const tokens = {
     "p-xl": "48px",
     "gap-s": "8px",
     "gap-m": "16px",
-    "gap-l": "24px"
+    "gap-l": "24px",
+    "s": "8px",
+    "m": "16px",
+    "l": "24px",
+    "xl": "48px"
   },
   "radius": {
     "rounded-s": "4px",

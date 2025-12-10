@@ -9,23 +9,31 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // ここでは値を直書きせず、tokens変数を参照するだけ
+      // ここでは値を直書きせず、auto-generated adapter の形 (`tokens.color`, `tokens.radius`, `tokens.spacing`) を参照
       colors: {
         brand: {
-          primary: tokens.colors.brand.primary,
-          "primary-hover": tokens.colors.brand.primaryHover,
-          secondary: tokens.colors.brand.secondary,
-          accent: tokens.colors.brand.accent,
+          primary: tokens.color["bg-brand-primary"],
+          "primary-hover": tokens.color["bg-hover"] || tokens.color["bg-brand-primary"],
+          secondary: tokens.color["bg-brand-secondary"],
+          accent: tokens.color["bg-brand-accent"],
         },
         surface: {
-          DEFAULT: tokens.colors.surface.default,
-          subtle: tokens.colors.surface.subtle,
-          hover: tokens.colors.surface.hover,
+          DEFAULT: tokens.color["bg-surface"],
+          subtle: tokens.color["bg-surface-muted"],
+          hover: tokens.color["bg-hover"],
         },
-        muted: tokens.colors.muted,
-        text: tokens.colors.text,
-        state: tokens.colors.state,
-        border: tokens.colors.border,
+        muted: tokens.color["bg-surface-muted"],
+        text: {
+          primary: tokens.color["text-primary"],
+          secondary: tokens.color["text-secondary"],
+          tertiary: tokens.color["text-tertiary"],
+        },
+        state: {
+          success: tokens.color["text-success"],
+          warning: tokens.color["text-warning"],
+          danger: tokens.color["text-danger"],
+        },
+        border: tokens.color["border-default"],
       },
       borderRadius: tokens.radius,
       spacing: tokens.spacing,

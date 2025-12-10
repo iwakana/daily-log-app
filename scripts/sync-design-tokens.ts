@@ -32,6 +32,7 @@ interface TokenStructure {
   size?: Record<string, string>;
   border?: Record<string, string>;
   lineHeight?: Record<string, number>;
+  fontFamily?: Record<string, string>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [key: string]: any;
 }

@@ -14,7 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Borel:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       {/* 全体にパステルの優しい背景色(bg-muted)を適用 */}
       <body className="bg-muted text-text-high antialiased selection:bg-brand-primary selection:text-white">
         {children}

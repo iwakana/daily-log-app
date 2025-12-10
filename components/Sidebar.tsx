@@ -25,10 +25,10 @@ export function Sidebar({
       <div className="p-m border-b border-ui-border flex items-center gap-m">
         <span className="text-3xl">☁️</span>
         <div>
-          <h1 className="text-lg font-bold text-text-high tracking-widest">
+          <h1 className="text-lg font-bold text-text-high tracking-widest font-accent">
             Daily Log
           </h1>
-          <p className="text-xs text-text-muted">My Wellness</p>
+          <p className="text-xs text-text-muted font-accent">My Wellness</p>
         </div>
       </div>
 

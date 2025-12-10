@@ -116,6 +116,10 @@ export const tokens = {
     "leading-normal": 1.5,
     "leading-relaxed": 1.625,
   },
+  // ==================== FONT FAMILY TOKENS ====================
+  fontFamily: {
+    "font-accent": "Borel", // For English/Numbers only (Subject to font loading)
+  },
 } as const;
 
 export type Tokens = typeof tokens;

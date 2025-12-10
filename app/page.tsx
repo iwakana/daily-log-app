@@ -13,7 +13,7 @@ export default function Home() {
         fontFamily: "sans-serif",
       }}
     >
-      <h1>Daily Log App</h1>
+      <h1 className="font-accent text-3xl">Daily Log</h1>
       <p>日々の記録をはじめましょう</p>
 
       {/* ダッシュボードへのリンクボタン */}

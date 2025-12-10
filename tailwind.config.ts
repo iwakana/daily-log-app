@@ -45,6 +45,9 @@ const config: Config = {
         ])
       ),
       spacing: tokens.spacing,
+      fontFamily: {
+        accent: [tokens.fontFamily["font-accent"], "cursive"],
+      },
     },
   },
   plugins: [],

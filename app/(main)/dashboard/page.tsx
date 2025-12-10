@@ -51,7 +51,7 @@ export default function DashboardPage() {
     <div className="max-w-2xl mx-auto space-y-8 pb-20">
       {/* ヘッダー */}
       <header className="text-center py-6">
-        <h1 className="text-2xl font-bold text-text-high tracking-widest">
+        <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent">
           Daily Log ☁️
         </h1>
         <p className="text-text-muted mt-2">今日の気分はどうですか？</p>

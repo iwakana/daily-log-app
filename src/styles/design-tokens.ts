@@ -80,6 +80,9 @@ export const tokens = {
     "leading-normal": 1.5,
     "leading-relaxed": 1.625
   },
+  "fontFamily": {
+    "font-accent": "Borel"
+  },
   "colors": {
     "brand": {
       "primary": "#f472b6",

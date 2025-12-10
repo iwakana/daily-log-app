@@ -38,4 +38,6 @@ export const tokens = {
     l: "24px",
     xl: "40px",
   },
-};
+}as const; // 👈 追加（値が書き換わらないように固定）
+
+export type Tokens = typeof tokens; // 👈 追加（他のファイルで型を使えるように）

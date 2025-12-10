@@ -54,7 +54,7 @@ export default function DiagnosisPage() {
       {/* ==================== HERO SECTION ==================== */}
       <section
         style={{
-          padding: `${tokens.spacing["p-xl"]} ${tokens.spacing["p-l"]}`,
+          padding: `${tokens.spacing["xl"]} ${tokens.spacing["l"]}`,
           background: `linear-gradient(135deg, ${tokens.color["bg-brand-primary"]} 0%, ${tokens.color["bg-brand-secondary"]} 100%)`,
           color: tokens.color["bg-surface"],
           textAlign: "center",

@@ -13,7 +13,8 @@ const config: Config = {
       colors: {
         brand: {
           primary: tokens.color["bg-brand-primary"],
-          "primary-hover": tokens.color["bg-hover"] || tokens.color["bg-brand-primary"],
+          "primary-hover":
+            tokens.color["bg-hover"] || tokens.color["bg-brand-primary"],
           secondary: tokens.color["bg-brand-secondary"],
           accent: tokens.color["bg-brand-accent"],
         },
@@ -35,7 +36,14 @@ const config: Config = {
         },
         border: tokens.color["border-default"],
       },
-      borderRadius: tokens.radius,
+      // Normalize radius keys: strip leading `rounded-` so Tailwind generates
+      // utilities like `rounded-m` instead of `rounded-rounded-m`.
+      borderRadius: Object.fromEntries(
+        Object.entries(tokens.radius || {}).map(([k, v]) => [
+          k.replace(/^rounded-/, ""),
+          v,
+        ])
+      ),
       spacing: tokens.spacing,
     },
   },

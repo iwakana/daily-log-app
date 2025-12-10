@@ -24,7 +24,7 @@ bg-success, bg-warning, bg-danger
 ### 余白・角丸・影
 
 p-s, p-m, p-l, p-xl / gap-s, gap-m, gap-l
-rounded-s, rounded-m  // note: `rounded-l` is deprecated; prefer `rounded-m`
+rounded-s, rounded-m // note: `rounded-l` is deprecated; prefer `rounded-m`
 shadow-card, shadow-elevated
 
 ## 禁止

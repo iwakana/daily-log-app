@@ -33,15 +33,21 @@ This ensures `src/styles/design-tokens.ts` is always up-to-date before Tailwind 
 ## Workflow
 
 1. **Edit canonical tokens** in `design-tokens.ts`
+
    ```typescript
    export const tokens = {
-     color: { /* ... */ },
-     spacing: { /* ... */ },
+     color: {
+       /* ... */
+     },
+     spacing: {
+       /* ... */
+     },
      // ...
    } as const;
    ```
 
 2. **Run sync** before development or build:
+
    ```bash
    npm run sync-tokens
    # or simply
@@ -49,9 +55,12 @@ This ensures `src/styles/design-tokens.ts` is always up-to-date before Tailwind 
    ```
 
 3. **Adapter is generated** at `src/styles/design-tokens.ts`:
+
    ```typescript
    // AUTO-GENERATED: Tailwind Adapter
-   export const tokens = { /* synced from design-tokens.ts */ } as const;
+   export const tokens = {
+     /* synced from design-tokens.ts */
+   } as const;
    ```
 
 4. **Tailwind config imports** from adapter:
@@ -74,6 +83,7 @@ This ensures `src/styles/design-tokens.ts` is always up-to-date before Tailwind 
 ## Validation
 
 The script validates:
+
 - ✅ Source file (`design-tokens.ts`) is readable
 - ✅ Tokens object can be parsed
 - ✅ Adapter file is generated with valid TypeScript
@@ -111,10 +121,9 @@ The new token is now available in `src/styles/design-tokens.ts` and ready for Ta
 
 ## Troubleshooting
 
-| Issue | Solution |
-|-------|----------|
+| Issue                          | Solution                                                                                  |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
 | "Could not find tokens export" | Check `design-tokens.ts` syntax and ensure `export const tokens = {...} as const;` exists |
-| Permission denied | Run `chmod +x scripts/sync-design-tokens.ts` |
-| Script not found | Ensure `ts-node` is installed: `npm install --save-dev ts-node` |
-| Adapter not updated | Delete `src/styles/design-tokens.ts` and rerun `npm run sync-tokens` |
-
+| Permission denied              | Run `chmod +x scripts/sync-design-tokens.ts`                                              |
+| Script not found               | Ensure `ts-node` is installed: `npm install --save-dev ts-node`                           |
+| Adapter not updated            | Delete `src/styles/design-tokens.ts` and rerun `npm run sync-tokens`                      |

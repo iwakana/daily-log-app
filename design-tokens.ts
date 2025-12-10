@@ -54,10 +54,10 @@ export const tokens = {
     "gap-m": "16px",
     "gap-l": "24px",
     // convenience aliases (allow tokens.spacing['s'] style)
-    "s": "8px",
-    "m": "16px",
-    "l": "24px",
-    "xl": "48px",
+    s: "8px",
+    m: "16px",
+    l: "24px",
+    xl: "48px",
   },
 
   // ==================== RADIUS TOKENS ====================

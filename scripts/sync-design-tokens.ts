@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 /**
  * Sync Design Tokens Script
- * 
+ *
  * Purpose: Automatically generate Tailwind adapter from canonical tokens in design-tokens.ts
  * Single Source of Truth: design-tokens.ts (root)
  * Output: src/styles/design-tokens.ts (Tailwind adapter for tailwind.config.ts)
- * 
+ *
  * Usage:
  *   npx ts-node scripts/sync-design-tokens.ts
  */
@@ -40,9 +40,11 @@ interface TokenStructure {
 function extractTokensFromFile(filePath: string): TokenStructure {
   try {
     const content = fs.readFileSync(filePath, "utf-8");
-    
+
     // Extract the tokens object using regex
-    const tokenMatch = content.match(/export const tokens = ({[\s\S]*?}) as const;/);
+    const tokenMatch = content.match(
+      /export const tokens = ({[\s\S]*?}) as const;/
+    );
     if (!tokenMatch) {
       throw new Error("Could not find tokens export in source file");
     }
@@ -51,7 +53,7 @@ function extractTokensFromFile(filePath: string): TokenStructure {
     const tokensStr = tokenMatch[1];
     const evalFn = new Function(`return (${tokensStr})`);
     const tokens = evalFn();
-    
+
     return tokens;
   } catch (error) {
     console.error(`❌ Error reading tokens from ${filePath}:`, error);
@@ -107,11 +109,18 @@ function generateAdapterCode(tokens: TokenStructure): string {
   adapter.borderRadius = borderRadius;
 
   // Ensure spacing aliases s/m/l/xl exist at top-level spacing
-  const spacing = Object.assign({}, tokens.spacing || {} as Record<string,string>);
-  if (spacing["s"] === undefined && spacing["p-s"]) spacing["s"] = spacing["p-s"];
-  if (spacing["m"] === undefined && spacing["p-m"]) spacing["m"] = spacing["p-m"];
-  if (spacing["l"] === undefined && spacing["p-l"]) spacing["l"] = spacing["p-l"];
-  if (spacing["xl"] === undefined && spacing["p-xl"]) spacing["xl"] = spacing["p-xl"];
+  const spacing = Object.assign(
+    {},
+    tokens.spacing || ({} as Record<string, string>)
+  );
+  if (spacing["s"] === undefined && spacing["p-s"])
+    spacing["s"] = spacing["p-s"];
+  if (spacing["m"] === undefined && spacing["p-m"])
+    spacing["m"] = spacing["p-m"];
+  if (spacing["l"] === undefined && spacing["p-l"])
+    spacing["l"] = spacing["p-l"];
+  if (spacing["xl"] === undefined && spacing["p-xl"])
+    spacing["xl"] = spacing["p-xl"];
   adapter.spacing = spacing;
 
   const code = `// AUTO-GENERATED: Tailwind Adapter for Design Tokens

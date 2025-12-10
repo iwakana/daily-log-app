@@ -4,8 +4,8 @@
 
 /* Use Borel for Latin characters; Japanese will fall back to system fonts automatically. */
 :root {
-  --font-sans: "Borel", system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial;
 }
 
 html,

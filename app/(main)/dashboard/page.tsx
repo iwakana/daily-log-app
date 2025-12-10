@@ -70,7 +70,7 @@ export default function DashboardPage() {
                 ${mood.color}
               `}
             >
-              <span className="text-4xl filter drop-shadow-sm">
+              <span className="text-4xl filter drop-shadow-sm leading-none">
                 {mood.icon}
               </span>
               <span className="text-sm font-bold">{mood.label}</span>

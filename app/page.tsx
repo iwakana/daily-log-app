@@ -16,8 +16,8 @@ export default function Home() {
       <h1>Daily Log App</h1>
       <p>日々の記録をはじめましょう</p>
 
-      {/* 診断ページへのリンクボタン */}
-      <Link href="/diagnosis">
+      {/* ダッシュボードへのリンクボタン */}
+      <Link href="/dashboard">
         <button
           style={{
             padding: "12px 24px",
@@ -29,7 +29,7 @@ export default function Home() {
             fontSize: "16px",
           }}
         >
-          診断ページへ移動
+          ダッシュボードへ移動
         </button>
       </Link>
     </main>

@@ -6,7 +6,7 @@
 
 export const tokens = {
   "color": {
-    "bg-brand-primary": "#60a5fa",
+    "bg-brand-primary": "#f472b6",
     "bg-brand-secondary": "#60a5fa",
     "bg-brand-accent": "#fcd34d",
     "bg-palette-green": "#34d399",
@@ -82,7 +82,7 @@ export const tokens = {
   },
   "colors": {
     "brand": {
-      "primary": "#60a5fa",
+      "primary": "#f472b6",
       "secondary": "#60a5fa",
       "accent": "#fcd34d",
       "primary-hover": "#f1f5f9"

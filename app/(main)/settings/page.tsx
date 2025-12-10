@@ -8,14 +8,17 @@ import { Card, CardHeader, CardContent } from "@/components/Card";
 export default function SettingsPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-8 pb-20">
-      <h1 className="text-2xl font-bold text-text-high tracking-widest">
+      <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent">
         Settings
       </h1>
 
       {/* プロフィール設定 */}
       <Card>
         <CardHeader>
-          <h2 className="text-lg font-bold text-text-high">👤 プロフィール</h2>
+          <h2 className="text-lg font-bold text-text-high flex items-center gap-2">
+            <span className="material-symbols-rounded">person</span>
+            プロフィール
+          </h2>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="flex items-center gap-4 mb-4">
@@ -37,8 +40,9 @@ export default function SettingsPage() {
       {/* アプリ設定 */}
       <Card>
         <CardHeader>
-          <h2 className="text-lg font-bold text-text-high">
-            🎨 アプリの見た目
+          <h2 className="text-lg font-bold text-text-high flex items-center gap-2">
+            <span className="material-symbols-rounded">palette</span>
+            アプリの見た目
           </h2>
         </CardHeader>
         <CardContent className="space-y-6">

@@ -8,7 +8,7 @@ import Modal from "@/components/Modal";
 
 // スタンプの定義
 const MOODS = [
-  { icon: "sunny", label: "Great", color: "bg-orange-100 text-orange-500" },
+  { icon: "celebration", label: "Great", color: "bg-orange-100 text-orange-500" },
   { icon: "spa", label: "Calm", color: "bg-emerald-100 text-emerald-500" },
   { icon: "rainy", label: "Blue", color: "bg-blue-100 text-blue-500" },
   { icon: "thunderstorm", label: "Irritated", color: "bg-purple-100 text-purple-500" },
@@ -31,7 +31,7 @@ export default function DashboardPage() {
     {
       id: 1,
       date: "12/10",
-      mood: "sunny",
+      mood: "celebration",
       text: "新しいアプリのアイデアを思いついた！",
     },
     {
@@ -76,7 +76,7 @@ export default function DashboardPage() {
               <span className="material-symbols-rounded text-4xl filter drop-shadow-sm leading-none">
                 {mood.icon}
               </span>
-              <span className="text-sm font-bold">{mood.label}</span>
+              <span className="text-sm font-bold font-accent">{mood.label}</span>
             </button>
           ))}
         </div>
@@ -95,7 +95,7 @@ export default function DashboardPage() {
                   </span>
                 </div>
                 <div>
-                  <div className="text-xs text-text-muted font-bold mb-1">
+                  <div className="text-xs text-text-muted font-bold mb-1 font-accent">
                     {entry.date}
                   </div>
                   <p className="text-text-high text-sm">{entry.text}</p>

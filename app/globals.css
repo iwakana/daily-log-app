@@ -31,6 +31,8 @@ body {
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
+  vertical-align: middle; /* Fix alignment with text */
+  margin-bottom: 0.1em; /* Micro-adjustment for Borel baseline */
   -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }

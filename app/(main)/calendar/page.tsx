@@ -6,14 +6,15 @@ import Tag from "@/components/Tag";
 
 export default function CalendarPage() {
   // ダミーデータ：過去の気分スタンプ
+  // ダミーデータ：過去の気分スタンプ
   const records = [
-    { date: 1, mood: "🥰", color: "bg-rose-100" },
-    { date: 2, mood: "🍵", color: "bg-emerald-100" },
-    { date: 3, mood: "😢", color: "bg-blue-100" },
-    { date: 4, mood: "🥰", color: "bg-rose-100" },
-    { date: 5, mood: "🍵", color: "bg-emerald-100" },
-    { date: 8, mood: "😡", color: "bg-orange-100" },
-    { date: 10, mood: "🥰", color: "bg-rose-100" },
+    { date: 1, mood: "celebration", color: "bg-orange-100 text-orange-500" },
+    { date: 2, mood: "spa", color: "bg-emerald-100 text-emerald-500" },
+    { date: 3, mood: "rainy", color: "bg-blue-100 text-blue-500" },
+    { date: 4, mood: "celebration", color: "bg-orange-100 text-orange-500" },
+    { date: 5, mood: "spa", color: "bg-emerald-100 text-emerald-500" },
+    { date: 8, mood: "thunderstorm", color: "bg-purple-100 text-purple-500" },
+    { date: 10, mood: "celebration", color: "bg-orange-100 text-orange-500" },
   ];
 
   // カレンダーの日付生成 (1日〜31日)
@@ -24,14 +25,24 @@ export default function CalendarPage() {
       {/* ヘッダー */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-text-high tracking-widest">
+          <h1 className="text-2xl font-bold text-text-high tracking-widest font-accent">
             December, 2025
           </h1>
           <p className="text-text-muted mt-1">今月の心の記録</p>
         </div>
         <div className="flex gap-2">
-          <Tag variant="default">🥰 絶好調: 3日</Tag>
-          <Tag variant="success">🍵 穏やか: 2日</Tag>
+          <Tag variant="default">
+            <span className="material-symbols-rounded text-sm align-middle mr-1">
+              celebration
+            </span>
+            Great: 3日
+          </Tag>
+          <Tag variant="success">
+            <span className="material-symbols-rounded text-sm align-middle mr-1">
+              spa
+            </span>
+            Calm: 2日
+          </Tag>
         </div>
       </div>
 
@@ -45,7 +56,7 @@ export default function CalendarPage() {
                 key={day}
                 className="text-xs font-bold text-brand-primary uppercase tracking-wider"
               >
-                {day}
+                <span className="font-accent">{day}</span>
               </div>
             ))}
           </div>
@@ -97,7 +108,9 @@ export default function CalendarPage() {
                       ${record.color}
                     `}
                     >
-                      {record.mood}
+                      <span className="material-symbols-rounded text-lg">
+                        {record.mood}
+                      </span>
                     </div>
                   )}
 

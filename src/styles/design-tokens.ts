@@ -1,43 +1,75 @@
-// ここが「唯一の正解データ（Single Source of Truth）」になります
+// AUTO-GENERATED: Tailwind Adapter for Design Tokens
+// Source: design-tokens.ts (Canonical Source of Truth)
+// ⚠️  DO NOT EDIT MANUALLY — run "npm run sync-tokens" to regenerate
+//
+// This file bridges canonical design tokens to Tailwind theme.extend
 
 export const tokens = {
-  colors: {
-    brand: {
-      primary: "#f472b6", // 🌸 ソフトピンク
-      primaryHover: "#ec4899",
-      secondary: "#60a5fa", // ☁️ パステルブルー
-      accent: "#fcd34d", // ⭐ クリームイエロー
-    },
-    surface: {
-      default: "#ffffff",
-      subtle: "#fff1f2",
-      hover: "#fdf2f8",
-    },
-    muted: "#f0f9ff",
-    text: {
-      high: "#475569",
-      muted: "#94a3b8",
-      inverted: "#ffffff",
-    },
-    state: {
-      success: "#86efac",
-      warning: "#fde047",
-      danger: "#fda4af",
-      info: "#7dd3fc",
-    },
-    border: "#fbcfe8",
+  "color": {
+    "bg-brand-primary": "#f472b6",
+    "bg-brand-secondary": "#60a5fa",
+    "bg-brand-accent": "#fcd34d",
+    "bg-palette-green": "#34d399",
+    "bg-palette-yellow": "#fbbf24",
+    "bg-surface": "#ffffff",
+    "bg-surface-muted": "#f8fafc",
+    "text-primary": "#0f172a",
+    "text-secondary": "#475569",
+    "text-tertiary": "#94a3b8",
+    "text-success": "#059669",
+    "text-warning": "#d97706",
+    "text-danger": "#dc2626",
+    "bg-success": "#ecfdf5",
+    "bg-warning": "#fffbeb",
+    "bg-danger": "#fef2f2",
+    "border-default": "#e2e8f0",
+    "bg-hover": "#f1f5f9"
   },
-  radius: {
-    m: "16px",
-    l: "24px",
-    full: "9999px",
+  "spacing": {
+    "p-s": "8px",
+    "p-m": "16px",
+    "p-l": "24px",
+    "p-xl": "48px",
+    "gap-s": "8px",
+    "gap-m": "16px",
+    "gap-l": "24px"
   },
-  spacing: {
-    s: "8px",
-    m: "16px",
-    l: "24px",
-    xl: "40px",
+  "radius": {
+    "rounded-s": "4px",
+    "rounded-m": "8px",
+    "rounded-l": "8px"
   },
-}as const; // 👈 追加（値が書き換わらないように固定）
+  "shadow": {
+    "shadow-card": "0 4px 12px rgba(15, 23, 42, 0.08)",
+    "shadow-elevated": "0 10px 24px rgba(15, 23, 42, 0.12)"
+  },
+  "typography": {
+    "h1-size": "36px",
+    "h1-weight": 700,
+    "h2-size": "28px",
+    "h2-weight": 700,
+    "h3-size": "20px",
+    "h3-weight": 600,
+    "body-size": "16px",
+    "body-weight": 400,
+    "small-size": "14px",
+    "small-weight": 400,
+    "caption-size": "12px",
+    "caption-weight": 500,
+    "hero-emoji-size": "40px"
+  },
+  "size": {
+    "touch-min": "44px",
+    "container-max": "1200px",
+    "hero-max": "600px",
+    "feature-max": "500px",
+    "card-min": "280px",
+    "process-min": "240px",
+    "icon-60": "60px"
+  },
+  "border": {
+    "width-default": "1px"
+  }
+} as const;
 
-export type Tokens = typeof tokens; // 👈 追加（他のファイルで型を使えるように）
+export type Tokens = typeof tokens;

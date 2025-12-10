@@ -8,13 +8,15 @@
  * 
  * Usage:
  *   npx ts-node scripts/sync-design-tokens.ts
- * 
- * Or add to package.json:
- *   "scripts": { "sync-tokens": "ts-node scripts/sync-design-tokens.ts" }
  */
 
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+// Fix for __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Define paths
 const rootDir = path.resolve(__dirname, "..");
@@ -28,6 +30,7 @@ interface TokenStructure {
   shadow?: Record<string, string>;
   typography?: Record<string, string | number>;
   size?: Record<string, string>;
+  border?: Record<string, string>;
   [key: string]: any;
 }
 
